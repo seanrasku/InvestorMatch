@@ -1,0 +1,17 @@
+Instructions on how to start each project: 
+
+1. cd into the project's server or client depending on which one you want to work on
+2. Type into the terminal the following command: npm start
+This command will start the server or start the client (aka the website)
+3. ALWAYS START THE SERVER BEFORE THE CLIENT IF CREATING NEW CODE (Code may crash otherwise)
+
+
+
+When taking new code from Github: 
+
+1. Click on the code button and download the Zip file
+2. Go to your downloads folder on your computer and move it to wherever you keep the projects locally
+3. Open the new project in Visual Studio Code and add a file called .env to both the server and the client
+The .env files should be in your previous project, so just copy and paste their content into the new files you just created
+4. Make sure you run the following command in both the server and the client on terminal: npm install
+This will install the npm modules which consist of all the commands and files you will need for the project
