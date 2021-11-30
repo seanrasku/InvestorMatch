@@ -39,7 +39,7 @@ const {searchedUsers} = props;
           {searchedUsers.length !== 0 ? searchedUsers.map((u) => {
           return(
             
-            <ConnectUserProfile key={u._id} name={u.name} userType={u.userType} bio = {u.bio}/>
+            <ConnectUserProfile key={u._id} name={u.name} profilePic={u.profilePic.Data} userType={u.userType} bio = {u.bio}/>
             )
           }) : <h3 style={{textAlign: 'center', paddingTop: '50px', fontStyle: 'italic'}}>No Users Found</h3>}
           </div>
