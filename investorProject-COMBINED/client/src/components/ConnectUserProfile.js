@@ -1,12 +1,13 @@
 import React from 'react'
 //import Roboto from '../fonts/Roboto'
-import tempPic from './Logo.png';
+//import tempPic from './Logo.png';
 
 export default function ConnectUserProfile(props) {
     const {
         name,
         userType,
-        bio
+        bio,
+        profilePic,
     } = props
     const styleObj = {
         fontSize: 20,
@@ -70,6 +71,11 @@ export default function ConnectUserProfile(props) {
         justifyContent: 'flex-end',
         alignItems: 'center'
     }
+    
+    //for profile pic to display
+    const mimetype = 'image/png';
+    const img = new Buffer.from(profilePic).toString("base64");
+    
     return (
         <div style= {styleCard} className = "btn">
             <div className= "card-body" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
@@ -79,7 +85,7 @@ export default function ConnectUserProfile(props) {
                 <div style={styleElements}>
                 <div style={styleAvatar}>
                     <img 
-                        src={tempPic}
+                        src={`data:${mimetype};base64,${img}`}
                         className='card-image-avatar'
                         alt=''
                     />
