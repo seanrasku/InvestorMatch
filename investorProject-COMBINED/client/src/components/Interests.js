@@ -117,7 +117,7 @@ const Interests = () => {
                           <TagButton 
                             key = {t._id} 
                             data = {t}  
-                            buttonColor={'#DAA520'} 
+                            buttonColor={'lightgreen'} 
                             setClickState={setParent} 
                           />
                         )
@@ -134,7 +134,7 @@ const Interests = () => {
                         <TagButton 
                           key = {t._id} 
                           data = {t} 
-                          buttonColor={'#9932CC'}
+                          buttonColor={'#1FC5B2'}
                           setClickState={setParent} 
                         />
                       )
