@@ -80,7 +80,7 @@ const SocialVentureAccount = () => {
                   return(
                     <div style={styleDiv}>
                       <Tag name={tag.name}/>
-                      <button className={"btn"} style={{marginLeft: '50px', marginTop: '9px', height: '51px', width: '51px'}} onClick={() => handleTagDel(tag)}>&times;</button>
+                      <button className={"btn btn-danger"} style={{marginLeft: '50px', marginTop: '9px', height: '51px', width: '51px'}} onClick={() => handleTagDel(tag)}>&times;</button>
                     </div>
                   )
                 }): <h5 style={{color: '#D2691E'}}>No Tags Found!</h5>}   

@@ -8,7 +8,7 @@ export default function TagButton(props) {
 
     const dispatch = useDispatch();
     const { auth } = useSelector((state) => ({ ...state }));
-
+    const [color, setColor] = useState("#E0FFFF")
     
     const { user, token } = auth;
     const {data, buttonColor, setClickState} = props
@@ -31,7 +31,10 @@ export default function TagButton(props) {
             <button
             style={buttonStyle}
             data = {data}
-            onClick={() => {setClickState(true, data)}}
+            onClick={() => {
+                setColor('008B8B')
+                setClickState(true, data)
+            }}
             >
                 {data.name}
             </button>

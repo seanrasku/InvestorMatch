@@ -86,7 +86,7 @@ const InvestorAccount = () => {
                     <div key={tag._id} style={styleDiv}>
                       <Tag key={tag.id} name={tag.name}/>
                       <button 
-                        className={"btn"} 
+                        className={"btn btn-danger"} 
                         style={{marginLeft: '50px', marginTop: '9px', height: '51px', width: '51px'}} 
                         onClick={() => handleTagDel(tag)}>
                           &times;
