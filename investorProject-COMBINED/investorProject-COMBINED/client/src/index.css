@@ -1,0 +1,15 @@
+.pointer {
+  cursor: pointer;
+}
+.card-image-avatar {
+  width: 111px;
+  height: 111px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.numCol {
+  column-count: 2;
+  column-width: 200px;
+  column-gap: 33px;
+}
