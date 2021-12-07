@@ -22,7 +22,7 @@ const Dashboard = () => {
             <h2>My Interests</h2>
           </div>
           <div className="col-md-2">
-            <Link to="/" className="btn btn-primary">
+            <Link to="/dashboard/connect" className="btn btn-primary">
               Browse Ventures
             </Link>
           </div>

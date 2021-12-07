@@ -11,7 +11,7 @@ const {searchedUsers} = props;
   const styleContainer = {
     backgroundColor: "#006FAA",
     fontFamily: "sans-serif",
-    paddingLeft: "40px",
+    paddingLeft: "100px",
     paddingBottom: "100px",    
     //margin: 'auto',
 

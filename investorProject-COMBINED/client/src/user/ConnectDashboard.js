@@ -15,7 +15,6 @@ const ConnectDashboard = () => {
     const setParent = (status, tag) => {
         if(status === true) {
             console.log("Called...")
-            setSearchedTags([...searchedTags, tag])
             getSearchedUsers(tag)
         }
     }
@@ -32,7 +31,13 @@ const ConnectDashboard = () => {
         else{
             const filteredUsers = searchedUsers.filter(u => u.tags.some(tag => tag.id === clickedTag.id))
             setSearchedUsers(filteredUsers) 
-            setSearchedTags([...searchedTags, clickedTag])
+            const test = searchedTags.filter(t => t.id === clickedTag.id)
+            console.log(test)
+            console.log(clickedTag)
+            if(test[0]) console.log("DUP: ", test[0])
+            else {
+                setSearchedTags([...searchedTags, clickedTag])
+            }
         }
     }
     
@@ -40,16 +45,7 @@ const ConnectDashboard = () => {
         setSearchedTags([])
         setSearchedUsers([])
     }
-    function handleDelete(id) {
-        // const newTags = searchedTags.filter(t => t.id != id)
-        // const newUsers = searchedUsers.filter(u => u.tags.some(t => t.id === id) === false)
-        // newTags.map((tag) => {
-        //     getSearchedUsers(tag)
-        // })
-        // //setSearchedUsers(newUsers)
-        // setSearchedTags(newTags)
-        console.log('to fix')
-    }
+
     const styleContainer = {
         marginBottom: '30px',
         
@@ -82,6 +78,11 @@ const ConnectDashboard = () => {
         // flexBasis: '100%',
         // flex: '1',
     }
+    const styleQuery = {
+        display: 'flex',
+        justifyContent: 'spaceAround',
+        flexFlow: 'column wrap',
+    }
   return (  
     <div>
         <div>
@@ -107,32 +108,27 @@ const ConnectDashboard = () => {
                 }) : <h6 style={{color: 'black', textAlign: 'center', paddingBottom: '50px', paddingTop: '50px'}}>No Tags Found</h6>} 
             </div>
             <div style={{display: 'flex', justifyContent: "center"}}>
-            <button 
-            className={'btn btn-danger'}
-            style={{marginBottom: '50px', marginTop: '10px', padding: '15px'}}
-            onClick = {() => handleClick()}>
-                Clear Search
-            </button>
+            
             </div>
 
             <div style={styleDashboard}>
+                <div style={styleQuery}>
                 <div style={styleSearches}>
-                <h5 style={{color: 'black', paddingTop: "20px"}}>Tags You've Searched</h5>
-
+                    <h5 style={{color: 'black', paddingTop: "20px"}}>Tags You've Searched</h5>
                     {searchedTags.map(tag=> {
                         return(
                         <div style={{display: 'flex', flexFlow: 'row wrap', padding: '20px', paddingBottom: '10px', justifyContent: "center"}}>
                         <Tag key={tag.id} name={tag.name}/>
-                        <button 
-                        className={"btn btn-danger"} 
-                        style={{marginTop: '20px', paddingLeft: '20px', paddingRight: '20px'}}
-                        onClick={() => handleDelete(tag.id)}
-                        > 
-                        &times;
-                        </button>
                         </div>
                         )
                     })}
+                </div>
+                <button 
+                    className={'btn btn-danger'}
+                    style={{marginBottom: '50px', marginTop: '10px', padding: '15px'}}
+                    onClick = {() => handleClick()}>
+                        Clear Search
+                </button>
                 </div>
                 <Connect searchedUsers={searchedUsers}/>:
             </div> 
