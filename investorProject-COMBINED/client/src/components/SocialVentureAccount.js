@@ -72,6 +72,7 @@ const SocialVentureAccount = () => {
         <p style={styleObj}>{user.location}</p>
                 
         <h5>Bio:</h5>
+        <p style={styleObj}>{user.bio}</p>
                   
         <div style={{border: "double", borderRadius: '5px', padding: '10px', width: '400px', backgroundColor: '#ADD8E6', alignContent: "center"}}>
                 <h2 style={{marginLeft: '20px', textDecoration: 'underline'}}>{user.name}'s Tags</h2>
@@ -80,7 +81,7 @@ const SocialVentureAccount = () => {
                   return(
                     <div style={styleDiv}>
                       <Tag name={tag.name}/>
-                      <button className={"btn btn-danger"} style={{marginLeft: '50px', marginTop: '9px', height: '51px', width: '51px'}} onClick={() => handleTagDel(tag)}>&times;</button>
+                      <button className={"btn"} style={{marginLeft: '50px', marginTop: '9px', height: '51px', width: '51px'}} onClick={() => handleTagDel(tag)}>&times;</button>
                     </div>
                   )
                 }): <h5 style={{color: '#D2691E'}}>No Tags Found!</h5>}   

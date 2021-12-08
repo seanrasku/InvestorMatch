@@ -9,10 +9,10 @@ const {searchedUsers} = props;
   console.log("CONNECT USERS: ", searchedUsers)
  
   const styleContainer = {
-    backgroundColor: "#006FAA",
-    fontFamily: "sans-serif",
-    paddingLeft: "100px",
-    paddingBottom: "100px",    
+    //backgroundColor: "#006FAA",
+    //fontFamily: "sans-serif",
+    //paddingLeft: "100px",
+    //paddingBottom: "100px",    
     //margin: 'auto',
 
   }
@@ -46,7 +46,7 @@ const {searchedUsers} = props;
           {searchedUsers.length !== 0 ? searchedUsers.map((u) => {
           return(
             
-            <ConnectUserProfile key={u._id} name={u.name} userType={u.userType} bio = {u.bio}/>
+            <ConnectUserProfile key={u._id} name={u.name} profilePic={u.profilePic.Data} bio = {u.bio}/>
             )
           }) : <h3 style={{textAlign: 'center', paddingTop: '50px', fontStyle: 'italic'}}>No Users Found</h3>}
           </div>

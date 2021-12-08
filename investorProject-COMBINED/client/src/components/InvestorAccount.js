@@ -76,6 +76,7 @@ const InvestorAccount = () => {
         <p style={styleObj}>{user.location}</p>
                 
         <h5>Bio:</h5>
+        <p style={styleObj}>{user.bio}</p>
         </div>            
     
         <div style={{border: "double", borderRadius: '5px', padding: '10px', width: '400px', backgroundColor: '#ADD8E6', alignContent: "center"}}>
@@ -86,7 +87,7 @@ const InvestorAccount = () => {
                     <div key={tag._id} style={styleDiv}>
                       <Tag key={tag.id} name={tag.name}/>
                       <button 
-                        className={"btn btn-danger"} 
+                        className={"btn"} 
                         style={{marginLeft: '50px', marginTop: '9px', height: '51px', width: '51px'}} 
                         onClick={() => handleTagDel(tag)}>
                           &times;

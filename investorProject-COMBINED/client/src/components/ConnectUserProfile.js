@@ -1,11 +1,11 @@
 import React from 'react'
 //import Roboto from '../fonts/Roboto'
-import tempPic from './Logo.png';
+//import tempPic from './Logo.png';
 
 export default function ConnectUserProfile(props) {
     const {
         name,
-        userType,
+        profilePic,
         bio
     } = props
     const styleObj = {
@@ -51,22 +51,40 @@ export default function ConnectUserProfile(props) {
         justifyContent: 'flex-end',
         alignItems: 'center',
     }
+
+    //for profile pic to display
+    const mimetype = 'image/png';
+    const img = new Buffer.from(profilePic).toString("base64");
+
+    console.log(bio);
+    var bio1 = bio;
+
+    if (bio == undefined){
+        bio1 = " ";
+    }
+    //if bio is long only display a bit of it in mini profile
+    else if (bio.length > 70){
+        bio1 = bio.substring(0, 70);
+    }
+    //console.log(bio1); 
+
+
     return (
         <div style= {styleCard} className = "btn">
             <div className= "card-body" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                     <div style={styleInside}>
                             <div style={styleAvatar}>
-                                <img 
-                                    src={tempPic}
-                                    className='card-image-avatar'
-                                    alt=''
-                                />
+                            <img 
+                                src={`data:${mimetype};base64,${img}`}
+                                className='card-image-avatar'
+                                alt=''
+                            />
                             </div>
 
 
                             <h5 style={styleHeader}>{name}</h5>
-                            <h5 style={styleObj}>{(userType === "SocialVenture" ? "Social Venture" : "Investor")}</h5>
-                            <h5 style={styleBio}>"{bio}"</h5>
+                            
+                            <h5 style={styleBio}>"{bio1}..."</h5>
 
                         <button 
                             className={"btn btn-success"} 
