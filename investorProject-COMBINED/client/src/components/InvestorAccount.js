@@ -5,6 +5,9 @@ import { getUser } from "../actions/user";
 import { deleteUserTag } from '../actions/user';
 import Tag from '../components/Tag';
 
+
+//this is what is displayed under my profile when the user is an investor
+
 const InvestorAccount = () => {
     const dispatch = useDispatch();    
     const { auth } = useSelector((state) => ({ ...state }));
@@ -27,10 +30,11 @@ const InvestorAccount = () => {
       padding: "20px",
   
     }
+
+
+    //whats needed for image to display, we need to convert to base 64
     const mimetype = 'image/png';
-    //console.log(mimetype);
     const img = new Buffer.from(data).toString("base64");
-    //console.log(img);
    
     console.log("INV TAGS IN STATE =======>>>: ", userTags)
     const handleTagDel = async(tagDel) =>{
@@ -45,9 +49,11 @@ const InvestorAccount = () => {
     window.localStorage.setItem("tag", JSON.stringify(newTags))
   }
 
+
+    //what is displayed
     return(
       <div>
-      <div  //className="row justify-content-center"
+      <div
             style={{
               backgroundColor: "#BED2DD",
               padding: "50px",
@@ -59,9 +65,6 @@ const InvestorAccount = () => {
         <div className="row justify-content-center">
 
         <p style={styleObj}>{user.name}</p>
-              
-                    
-        
                   
         <h5>Email:</h5>
                   

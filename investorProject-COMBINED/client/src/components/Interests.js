@@ -6,6 +6,11 @@ import TagButton from './TagButton'
 import { deleteUserTag, getUser, updateProfile } from '../actions/user';
 import { addTagtoAccount } from '../actions/user';
 import { toast } from 'react-toastify';
+
+//this page displays the tags
+
+
+
 const Interests = () => {   
     const dispatch = useDispatch(); 
     const { auth } = useSelector((state) => ({ ...state }));

@@ -51,8 +51,6 @@ const EditAccount = ({}) => {
           let res1 = await uploadPic(auth.token, user._id, data2);
           if (res1.data) {
           
-            //console.log(res1.data.profilePic);
-            //console.log(user.profilePic);
             //set profile pic to new one now
             user.profilePic = res1.data.profilePic;
             toast.success("Updated profile picture.");
@@ -85,7 +83,7 @@ const EditAccount = ({}) => {
         hasChanaged += 1;
       }
       
-      console.log(user._id);
+      //console.log(user._id);
       //console.log(auth.token);
 
 
@@ -99,6 +97,8 @@ const EditAccount = ({}) => {
             //console.log(res.data);
 
           //}
+
+          //this sends a popup message saying updated user.
           toast.success("Updated user.");
         } catch (err) {
           console.log("Error cannot verify user");
@@ -108,12 +108,10 @@ const EditAccount = ({}) => {
     };
 
 
-
+    //what is displayed includes the edit account form
     return(
       <div className="d-flex justify-content-center">
-          
                   <EditAccountForm
-                    //handleImageUpload={handleImageUpload}
                     editItem={editItem}
                     oldName={user.name}
                     name={name}

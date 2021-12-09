@@ -4,6 +4,9 @@ import tempPic from './Logo.png';
 import { deleteUserTag } from '../actions/user';
 import Tag from '../components/Tag';
 
+//this is for the my profiel on a social venture account
+
+
 const SocialVentureAccount = () => {    
   const dispatch = useDispatch();
   const { auth } = useSelector((state) => ({ ...state }));
@@ -18,10 +21,9 @@ const SocialVentureAccount = () => {
     fontFamily: "sans-serif"
   }
 
+  //what is needed for image to render, we need to convert to base 64
   const mimetype = 'image/png';
-  //console.log(mimetype);
   const img = new Buffer.from(data).toString("base64");
-  //console.log(img);
 
   const styleDiv = {
     display: 'flex',
@@ -43,6 +45,8 @@ const SocialVentureAccount = () => {
   }
 
 //Add an id for tags with uubv4 (what was in react video)
+
+  //what is displayed for a social venture
   return(
     <div>
       <div  //className="row justify-content-center"

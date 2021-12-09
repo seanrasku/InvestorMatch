@@ -54,11 +54,13 @@ export default function ConnectUserProfile(props) {
 
     //for profile pic to display
     const mimetype = 'image/png';
+    //convert to base 64 to be displayable
     const img = new Buffer.from(profilePic).toString("base64");
 
     console.log(bio);
     var bio1 = bio;
 
+    //if user has not made bio yet then there wont be errors
     if (bio == undefined){
         bio1 = " ";
     }
@@ -68,7 +70,7 @@ export default function ConnectUserProfile(props) {
     }
     //console.log(bio1); 
 
-
+    //what is displayed
     return (
         <div style= {styleCard} className = "btn">
             <div className= "card-body" style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>

@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 import { updateProfile } from "../actions/user";
 import VentureForm from "./VentureForm";
 
+//here is the extra info we need when the user is a venture and signs up
+
 const VenturePopup = ({ history }) => {
     const { auth } = useSelector((state) => ({ ...state }));
     //console.log(auth);

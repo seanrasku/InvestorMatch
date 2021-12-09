@@ -5,7 +5,6 @@ import axios from 'axios';
 //needs to happen for code to work properly
 
 //Gets all users currently stored in database
-//Gets all users currently stored in database
 export const allUsers = async (token) =>{
     try{
     return await axios.get(`${process.env.REACT_APP_API}/user`, {
@@ -18,6 +17,7 @@ export const allUsers = async (token) =>{
     }
 }
 
+//helper to get specific user from database
 export const getUser = async (userId, token) =>{
     try{
         return await axios.get(`${process.env.REACT_APP_API}/user/${userId}`, {
@@ -30,6 +30,8 @@ export const getUser = async (userId, token) =>{
     }
 }
 
+//helper to send the data of picture uploaded from the front end
+//and store it in the database with the associated user
 export const uploadPic = async (token, userId, file) =>{
     let upload = await axios.patch(`${process.env.REACT_APP_API}/user/pic/${userId}`, file, {
             headers: {
@@ -39,7 +41,7 @@ export const uploadPic = async (token, userId, file) =>{
     return upload;
 }
 
-
+//helper to add tag to be associated with ths user in backend 
 export const addTagtoAccount = async (token, body, userId, tagId) => {
     try{
         return await axios.post(`${process.env.REACT_APP_API}/user/${userId}/${tagId}`, body, {
@@ -53,6 +55,8 @@ export const addTagtoAccount = async (token, body, userId, tagId) => {
     
  }
 
+ //helper that takes the changes made to user in front end and saves them to 
+ //the database
  export const updateProfile = async (id, data) =>{
     let update =  await axios.patch(`${process.env.REACT_APP_API}/user/${id}`, data
         /*headers: {
@@ -62,6 +66,8 @@ export const addTagtoAccount = async (token, body, userId, tagId) => {
     return update;
 }
 
+//helper that communicated with the database to delete the tag that was
+//once associated with this user
 export const deleteUserTag = async (token, userId, tagId) =>{
     try{
         const delUTag = await axios.delete(`${process.env.REACT_APP_API}/user/${userId}/${tagId}`,{

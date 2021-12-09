@@ -2,7 +2,6 @@ import React from "react";
 
 
 const EditAccountForm = ({
-    //handleImageUpload,
     editItem,
     oldName,
     name,

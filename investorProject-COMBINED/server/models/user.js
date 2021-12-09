@@ -3,6 +3,7 @@ import bcrypt from "bcrypt";
 const { Schema } = mongoose;
 const {ObjectId} = mongoose.Schema;
 
+//schema for each user, this is how a user and their data is stored in database
 
 const userSchema = new Schema(
   {

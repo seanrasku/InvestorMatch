@@ -1,14 +1,12 @@
 import User from "../models/user";
 import Tag from "../models/tag";
-//const express = require("express");
 
 
+//uploading the profile picture to the database
 export const uploadPic = async(req, res) => {
 
     console.log(req.body);
     
-    //console.log(req.files);
-    //console.log(req.files.file.data);
     try{
         const data1 = req.files.file.data;
         const mimetype = req.files.file.mimetype;
@@ -31,6 +29,7 @@ export const uploadPic = async(req, res) => {
     
 }
 
+//retirive all users
 export const allUsers = async(req, res) => {
     let all = await User.find({}).populate(req.params.id).exec();
     res.json(all);

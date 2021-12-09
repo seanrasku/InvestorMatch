@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import {allUsers} from '../actions/user'
 import ConnectUserProfile from './ConnectUserProfile';
 
+//connect page that lets you search for users
 const Connect = (props) => {
 const {searchedUsers} = props;
 
@@ -17,7 +18,7 @@ const {searchedUsers} = props;
 
   }
 
-
+  //what is displayed
   return (
     <div style={styleContainer}>
       <div className="container-fluid text-center"

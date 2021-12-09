@@ -1,4 +1,7 @@
 import React from 'react'
+
+//these are all the fields that are stored in database for a social venture
+//they will just stay blank for an investor
 const VentureForm = ({
   handleSubmit,
   phone,
