@@ -50,7 +50,6 @@ function App() {
           path="/dashboard/connect"
           component={ConnectDashboard}
         />
-        <PrivateRoute exact path="/hotels/new" component={NewHotel} />
       </Switch>
     </BrowserRouter>
   );

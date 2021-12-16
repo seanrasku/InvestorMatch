@@ -1,5 +1,5 @@
 import React from 'react';
-
+//form to complete login for user
 const LoginForm = ({
   handleSubmit,
   email,

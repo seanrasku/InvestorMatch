@@ -9,18 +9,18 @@ const {searchedUsers} = props;
 
   console.log("CONNECT USERS: ", searchedUsers)
  
-  const styleContainer = {
-    //backgroundColor: "#006FAA",
-    //fontFamily: "sans-serif",
-    //paddingLeft: "100px",
-    //paddingBottom: "100px",    
-    //margin: 'auto',
+  // const styleContainer = {
+  //   backgroundColor: "#006FAA",
+  //   fontFamily: "sans-serif",
+  //   paddingLeft: "100px",
+  //   paddingBottom: "100px",    
+  //   margin: 'auto',
 
-  }
+  // }
 
   //what is displayed
   return (
-    <div style={styleContainer}>
+    <div>
       <div className="container-fluid text-center"
             style={{
               backgroundColor: "#BED2DD",
@@ -38,10 +38,7 @@ const {searchedUsers} = props;
               display: 'flex',
               flexFlow: 'row wrap',
               justifyContent: 'center',
-              // paddingRight: "50px",
-              // paddingBottom: '50px',
               width: 'auto',
-              //margin: 'auto',
               borderRadius: "10px"
               }}>
           {searchedUsers.length !== 0 ? searchedUsers.map((u) => {

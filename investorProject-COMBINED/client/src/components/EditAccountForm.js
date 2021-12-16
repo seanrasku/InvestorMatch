@@ -1,12 +1,11 @@
 import React from "react";
 
-
+//form to edit your account
 const EditAccountForm = ({
     editItem,
     oldName,
     name,
     setName,
-    //profilePic,
     setProfilePic,
     phone,
     setPhone,
@@ -47,10 +46,7 @@ const EditAccountForm = ({
                         <input  //edit profile pic
                             type="file"
                             className="form-control"
-                            //placeholder= "profile picture"
-                            //label = "Image"
                             accept=".jpeg, .png, .jpg"
-                            //files = {profilePic}
                             onChange={(e) => setProfilePic(e.target.files[0])}
                             />
                             

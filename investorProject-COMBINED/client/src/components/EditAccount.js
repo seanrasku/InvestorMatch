@@ -9,7 +9,7 @@ import axios from 'axios';
 import tempPic from './Logo.png';
 
 
-const EditAccount = ({}) => {    
+const EditAccount = () => {    
     const { auth } = useSelector((state) => ({ ...state }));
     const { user } = auth;
     const [name, setName] = useState("");
@@ -18,13 +18,6 @@ const EditAccount = ({}) => {
     const [location, setLocation] = useState("");
     const [bio, setBio] = useState("");
     const [links, setLinks] = useState("");
-
-    const styleObj = {
-        fontSize: 18,
-        fontFamily: 'Helvetica',
-    }
-
-   
 
     const editItem = async (e) => {
 
@@ -82,22 +75,11 @@ const EditAccount = ({}) => {
         data1.append("links", links);
         hasChanaged += 1;
       }
-      
-      //console.log(user._id);
-      //console.log(auth.token);
 
 
       //if only thing they change is profile pic
       if (hasChanaged != 0){
         try {
-          let res = await updateProfile(user._id , data1);
-          //if (res.data) {
-            
-            
-            //console.log(res.data);
-
-          //}
-
           //this sends a popup message saying updated user.
           toast.success("Updated user.");
         } catch (err) {

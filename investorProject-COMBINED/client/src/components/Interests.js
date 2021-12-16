@@ -1,10 +1,8 @@
-import {React, useState, useEffect, useRef} from 'react'
+import {React, useState, useEffect} from 'react'
 import { useSelector, useDispatch } from "react-redux";
-import tempPic from './Logo.png';
-import {allTags, getSpecificTag} from '../actions/tag'
+import {allTags} from '../actions/tag'
 import TagButton from './TagButton'
-import { deleteUserTag, getUser, updateProfile } from '../actions/user';
-import { addTagtoAccount } from '../actions/user';
+import {getUser, addTagtoAccount } from '../actions/user';
 import { toast } from 'react-toastify';
 
 //this page displays the tags
@@ -14,7 +12,6 @@ import { toast } from 'react-toastify';
 const Interests = () => {   
     const dispatch = useDispatch(); 
     const { auth } = useSelector((state) => ({ ...state }));
-    const { userTags } = useSelector((state) => ({ ...state }));
     const {user, token} = auth
     const [separateByCommunity, setCommunitySep] = useState({
       place: [],
@@ -62,7 +59,7 @@ const Interests = () => {
       loadTags();
     }, [tagtoadd]);
 
-
+    //gets click status and if true adds tags to user account
     const setParent = (status, tag) => {
       if(status === true){
         addTagstoAccount(tag)
@@ -72,6 +69,7 @@ const Interests = () => {
         tagName: tag
       })
     }
+    //implementation to add tag to user account
     const addTagstoAccount = async(tag) =>{
       const userId = user._id;
       const tagId = tag._id;
@@ -92,7 +90,7 @@ const Interests = () => {
           console.log(err);
       }
   }
-
+    //loads all available tags on page alphabetically
     const loadTags = async () => {
       let tags = await allTags(token)
       setCommunitySep({
@@ -102,7 +100,7 @@ const Interests = () => {
       })
   };
 
-    
+    //displays all available tags and waits for click, on click calls method to add tag to account
     return(
       <div>
         <div style={{

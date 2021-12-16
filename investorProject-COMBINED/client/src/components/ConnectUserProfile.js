@@ -8,13 +8,6 @@ export default function ConnectUserProfile(props) {
         profilePic,
         bio
     } = props
-    const styleObj = {
-        fontSize: 20,
-        fontFamily: "Helvetica",
-        marginTop: "10px",
-       // textAlign: "center",
-        fontWeight: '200',
-    }
     const styleHeader = {
         fontSize: 21,
         marginTop: '10px',

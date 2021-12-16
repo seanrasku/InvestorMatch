@@ -1,4 +1,5 @@
 import React from 'react'
+//form to get user info for registration
 const RegisterForm = ({
   handleSubmit,
   name,

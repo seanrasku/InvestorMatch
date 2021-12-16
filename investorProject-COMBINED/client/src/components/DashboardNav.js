@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 
 const DashboardNav = () => {
   const active = window.location.pathname;
-  //   console.log(active);
+
+  //creates active path and declares a path for all tabs in dashboard nav
   return (
     <div className="d-flex justify-content-end">
 

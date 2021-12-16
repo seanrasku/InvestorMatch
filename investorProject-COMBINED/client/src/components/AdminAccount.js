@@ -11,13 +11,8 @@ const AdminAccount = () => {
     const dispatch = useDispatch()
     const { auth } = useSelector((state) => ({ ...state }));
     const { user, token } = auth;
-
-    // const styleObj = {
-    //     fontSize: 18,
-    //     fontFamily: 'Helvetica',
-
-    // }
-
+  
+    //add tag to tag database
     const handleTagAdd = async(tagAndCommunity) =>{
       try{
         const split= tagAndCommunity.split('\n')
@@ -35,14 +30,13 @@ const AdminAccount = () => {
           type: "TAGS_ADDED",
           payload: newTag
         })
-        //setAddedTag(newTag)
 
       }catch(err){
         console.log(err)
       }
     }
 
-//write search function by name to find tag, not by id
+    //delete tag from tag database
     const handleTagDelete = async(tagName) =>{
       try{
         const split = tagName.split('\n')
@@ -52,21 +46,16 @@ const AdminAccount = () => {
         let allT = await allTags(token);
         console.log(allT)
         const tagToDelete = allT.data.filter(t => t.name === split[0] && t.community == split[1])
-        // let delTag = await deleteTag(token, user._id, tagToDelete[0]._id)
-        // console.log(delTag)
-        // if(!delTag) return toast.error("Tag Could Not Be Deleted") 
-        // toast.success("Success!")
         console.log(tagToDelete)
         if(tagToDelete[0] !== undefined){
           removeTagsFromUsers(tagToDelete[0])
         }
-        //setDeletedTag(delTag);
       }catch(err){
         console.log(err)
       }
     }
-//Figure out how to get 400 error from backend to here and how to remove 
-//dups on backend too
+    //update tag in tag database
+
     const handleTagUpdate = async(allThree) => {
       try{
         const split = allThree.split('\n')
@@ -79,16 +68,12 @@ const AdminAccount = () => {
         if(!updTag) return toast.error("Tag Could Not Be Deleted") 
         toast.success("Success!")
         console.log(updTag)
-        // setUpdatedTag({
-        //   old: tagToUpdate,
-        //   new: updTag,
-        // })
       }catch(err){
         console.log(err)
       }
     }
 
-
+    //thorough delete, deletes selected tag to delete from all users
     const removeTagsFromUsers = async(userTagtoDelete) =>{
       try{
         const all = await allUsers(token)
@@ -96,9 +81,7 @@ const AdminAccount = () => {
         console.log(userTagtoDelete)
         all.data.map(async (u) => {
           const t = u.tags.filter(uTag => uTag === userTagtoDelete.name)
-          const e = u.tags.filter(eTag => eTag.community === undefined)
           if(t.length !== 0){
-            const delTag = await deleteUserTag(token, u._id, userTagtoDelete._id)
             const userafterDel = await getUser(u._id, token)
             dispatch({
               type: "UPDATE_CURR_USER_TAGS",
@@ -112,15 +95,16 @@ const AdminAccount = () => {
       console.log(err)
     }
   }
-  
+    //submit handler for form
     const handleAddSubmit = async(event) => {
       try{
       event.preventDefault();
-      //toast.success("Success: Tag Added")
       }catch(err){
         if(err.response.status(400)) return toast.error(err.response.data)
       }
     }
+
+    //explains how to use admin account, then creates textboxes for inputting tag and community to perform action on, returns action selected
     return(
         <div className="col-md-8">
               <div className="mb-3">
@@ -183,14 +167,4 @@ const AdminAccount = () => {
     
 }
 
-{/* <div className="form-group mb-3">
-      <label className="form-label">Email address</label>
-      <input
-        type="email"
-        className="form-control"
-        placeholder="Enter Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-    </div> */}
 export default AdminAccount;

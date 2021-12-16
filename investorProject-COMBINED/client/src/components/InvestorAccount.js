@@ -1,8 +1,6 @@
-import {React, useState, useEffect } from 'react'
+import {React} from 'react'
 import { useSelector, useDispatch } from "react-redux";
-import tempPic from './Logo.png';
-import { getUser } from "../actions/user";
-import { deleteUserTag } from '../actions/user';
+import { deleteUserTag } from "../actions/user";
 import Tag from '../components/Tag';
 
 
@@ -15,8 +13,6 @@ const InvestorAccount = () => {
     const { user } = auth;
     const {token} = auth;
     const {data} = user.profilePic.Data;
-    //const {type} = user.profilePic.ContentType;
-    //console.log(data);
 
     const styleObj = {
       fontSize: 24,
@@ -50,7 +46,7 @@ const InvestorAccount = () => {
   }
 
 
-    //what is displayed
+    //display all clicked tags on account, along with information about user
     return(
       <div>
       <div
